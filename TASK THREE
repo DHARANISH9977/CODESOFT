@@ -1,0 +1,92 @@
+package task;
+import java.util.Scanner;
+class atmmachine
+{
+	int withdraw(int balance,int withdraw)
+	{
+		if (balance<withdraw ) {
+            System.out.println("Insufficient funds");
+            System.out.println("The amount in account was below");
+            int bal=1000;
+            return bal;}
+		else
+		{
+			System.out.println("Thank you for withdraw");
+			System.out.println("The remaining in account");
+		return balance-withdraw;
+		}
+	}
+   
+	
+	
+	int deposit(int balance,int deposit)
+	{
+		if(deposit>=50000)
+		{
+			System.out.println("Maximum depsoit was reached enter below ");
+			return 50000;
+			
+			
+		}
+		else {
+			System.out.println("Thank you for  depsoit");
+			System.out.println("The remaining in account");
+		return balance+deposit;}
+	}
+     
+}
+class useraccount extends atmmachine
+{
+	int balance(int balance)
+	{
+		return balance;
+	}
+}
+public class ATMINTERFACE {
+	public static void main(String args[])
+	{
+		
+		int dep;
+		int depo=0;
+		int option=5;
+		System.out.println("Option 1 to check balance");
+		System.out.println("Option 2 to deposit");
+		System.out.println("Option 3 to withdraw");
+		//System.out.println("Option 4 Withdraw after deposit");
+		Scanner s=new Scanner(System.in);
+		useraccount ua=new useraccount();
+		int bal=ua.balance(1000);
+		option=s.nextInt();
+		
+		switch(option)
+		{
+		case 1:
+		System.out.println("CURRENT BALANCE = "+bal);
+		break;
+		
+		case 2:
+		
+		System.out.println("Enter the amount to deposit");
+		int deposit=s.nextInt();
+		dep=ua.deposit(bal,deposit);
+		depo=dep;
+		System.out.println(dep);
+        break;
+        
+		case 3:
+		System.out.println("Enter the amount to withdraw");
+		int withdraw=s.nextInt();
+		int with=ua.withdraw(bal,withdraw);
+		System.out.println(with);
+		break;
+		
+			
+		default:
+			System.out.print("Invalid input");
+		}
+		s.close();
+		
+	}
+	
+
+	}
